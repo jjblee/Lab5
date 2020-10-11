@@ -12,7 +12,7 @@ public class Devil extends Agent {
         return new Devil();
     }
     @Override
-    public int choice(int previousOpponentChoice){
+    public int choice(int previousOpponentChoice, int prepreOppChoice){
         return Match.CHEAT;
     }
 

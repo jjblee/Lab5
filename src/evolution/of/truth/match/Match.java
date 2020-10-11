@@ -7,7 +7,7 @@ public class Match {
     public static int COOPERATE=1;
     public static int UNDEFINED=-1;
 
-    private static int ruleMatrix[][][]={
+    protected static int[][][] ruleMatrix ={
             {
                     {0,0},
                     {3,-1}
@@ -19,19 +19,23 @@ public class Match {
     };
 
     Agent agentA; Agent agentB;
-    int previousChoiceA, previousChoiceB;
+    int previousChoiceA, previousChoiceB, prepreAChoice, prepreBChoice;
 
     public Match(Agent agentA, Agent agentB){
         this.agentA=agentA; this.agentB=agentB;
         previousChoiceA=UNDEFINED;
+        prepreAChoice=UNDEFINED;
         previousChoiceB=UNDEFINED;
+        prepreBChoice=UNDEFINED;
     }
 
     public void playGame(){
-        int choiceA=agentA.choice(previousChoiceB);
-        int choiceB=agentB.choice(previousChoiceA);
+        int choiceA=agentA.choice(previousChoiceB, prepreBChoice);
+        int choiceB=agentB.choice(previousChoiceA, prepreAChoice);
         agentA.setScore(agentA.getScore()+ruleMatrix[choiceA][choiceB][0]);
         agentB.setScore(agentB.getScore()+ruleMatrix[choiceA][choiceB][1]);
+        prepreAChoice=previousChoiceA;
+        prepreBChoice=previousChoiceB;
         previousChoiceA=choiceA;
         previousChoiceB=choiceB;
     }

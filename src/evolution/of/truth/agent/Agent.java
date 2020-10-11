@@ -28,5 +28,5 @@ abstract public class Agent extends Individual {
         score = newScore;
     }
 
-    abstract public int choice(int previousOpponentChoice);
+    abstract public int choice(int previousOpponentChoice, int prepreOppChoice);
 }

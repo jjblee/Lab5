@@ -12,21 +12,12 @@ public class Copykitten extends Agent{
     }
     @Override
     public int choice(int previousOpponentChoice, int prepreOppChoice){
-
+        if(previousOpponentChoice== MistakeMatch.CHEAT&&prepreOppChoice==MistakeMatch.CHEAT){
+            return MistakeMatch.CHEAT;
+        }else{
+            return MistakeMatch.COOPERATE;
+        }
     }
+
 }
 
-
-//    public Individual clone(){
-//        return new Copycat();
-//    }
-//    @Override
-//    public int choice(int previousOpponentChoice){
-//        if(previousOpponentChoice== Match.UNDEFINED){
-//            return Match.COOPERATE;
-//        }else{
-//            return previousOpponentChoice;
-//        }
-//    }
-//
-//}

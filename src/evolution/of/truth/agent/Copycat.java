@@ -11,7 +11,7 @@ public class Copycat extends Agent{
         return new Copycat();
     }
     @Override
-    public int choice(int previousOpponentChoice){
+    public int choice(int previousOpponentChoice, int prepreOppChoice){
         if(previousOpponentChoice== Match.UNDEFINED){
             return Match.COOPERATE;
         }else{
